@@ -1,43 +1,43 @@
 'use strict';
 
-const reelString = `10
-9
-WILD
-J
-8
+const reelString = `A
+K
 PIC1
-9
-K
+J
+PIC4
+Q
 A
-9
-8
-K
-SCAT
-8
-10
+PIC2
 J
 Q
-10
-PIC3
-9
-10
-PIC2
+PIC1
+J
 Q
-10
+PIC1
+J
+K
 SCAT
 A
+J
+PIC3
+Q
+PIC2
 K
 PIC3
-9
+J
+A
+PIC4
+Q
+PIC1
+K
+SCAT
+Q
+K
+PIC3
+Q
 J
 PIC2
-8
-9
-SCAT
-8
-10
-PIC3
-J`;
+`;
 
 const reelJson = [];
 reelString.split(`\n`).forEach((value) => {
