@@ -11,7 +11,15 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}\\convert-reels-xls-json.js"
+      "program": "${workspaceFolder}\\${input:pickFile}"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "pickFile",
+      "type": "promptString",
+      "description": "Please enter a file name",
+      "default": "index.js"
     }
   ]
 }
