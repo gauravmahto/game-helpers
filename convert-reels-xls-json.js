@@ -1,111 +1,95 @@
 'use strict';
 
-const reelString = `A
-K
-PIC1
-J
-PIC4
-Q
-A
-PIC2
-J
-Q
-PIC1
-J
-Q
-PIC1
-J
-K
-SCAT
-A
-J
-PIC3
-Q
-PIC2
-K
-PIC3
-J
-A
-PIC4
-Q
-PIC1
-K
-SCAT
-Q
-K
-PIC3
-Q
-J
-PIC2
-`;
+const fs = require('fs');
 
-const reelJson = [];
-reelString.split(`\n`).forEach((value) => {
+const reelStrips = require('./reelStrips');
 
-  switch (value) {
+const finalData = {
+  reelStripDefinitions: []
+};
 
-    case 'A':
-      reelJson.push({ name: 'Ace' });
-      break;
+[ reelStrips.reelString1, reelStrips.reelString2,
+reelStrips.reelString3, reelStrips.reelString4,
+reelStrips.reelString5 ].forEach((reelString, index) => {
 
-    case 'K':
-      reelJson.push({ name: 'King' });
-      break;
+  const reelJson = [];
+  reelString.split(`\n`).forEach((value) => {
 
-    case 'Q':
-      reelJson.push({ name: 'Queen' });
-      break;
+    switch (value) {
 
-    case 'J':
-      reelJson.push({ name: 'Jack' });
-      break;
+      case 'A':
+        reelJson.push({ name: 'Ace' });
+        break;
 
-    case '10':
-      reelJson.push({ name: 'Ten' });
-      break;
+      case 'K':
+        reelJson.push({ name: 'King' });
+        break;
 
-    case '9':
-      reelJson.push({ name: 'Nine' });
-      break;
+      case 'Q':
+        reelJson.push({ name: 'Queen' });
+        break;
 
-    case '8':
-      reelJson.push({ name: 'Eight' });
-      break;
+      case 'J':
+        reelJson.push({ name: 'Jack' });
+        break;
 
-    case 'WILD':
-      reelJson.push({ name: 'Wild' });
-      break;
+      case '10':
+        reelJson.push({ name: 'Ten' });
+        break;
 
-    case 'SCAT':
-      reelJson.push({ name: 'Scatter' });
-      break;
+      case '9':
+        reelJson.push({ name: 'Nine' });
+        break;
 
-    case 'PIC1':
-      reelJson.push({ name: 'Pic1' });
-      break;
+      case '8':
+        reelJson.push({ name: 'Eight' });
+        break;
 
-    case 'PIC2':
-      reelJson.push({ name: 'Pic2' });
-      break;
+      case 'WILD':
+        reelJson.push({ name: 'Wild' });
+        break;
 
-    case 'PIC3':
-      reelJson.push({ name: 'Pic3' });
-      break;
+      case 'SCAT':
+        reelJson.push({ name: 'Scatter' });
+        break;
 
-    case 'PIC4':
-      reelJson.push({ name: 'Pic4' });
-      break;
+      case 'PIC1':
+        reelJson.push({ name: 'Pic1' });
+        break;
 
-    case 'PIC5':
-      reelJson.push({ name: 'Pic5' });
-      break;
+      case 'PIC2':
+        reelJson.push({ name: 'Pic2' });
+        break;
 
-    default:
-      reelJson.push({ name: value });
-      break;
+      case 'PIC3':
+        reelJson.push({ name: 'Pic3' });
+        break;
 
-  }
+      case 'PIC4':
+        reelJson.push({ name: 'Pic4' });
+        break;
+
+      case 'PIC5':
+        reelJson.push({ name: 'Pic5' });
+        break;
+
+      default:
+        if (value) {
+          reelJson.push({ name: value });
+        }
+        break;
+
+    }
+
+  });
+
+  finalData.reelStripDefinitions.push({
+    name: `Reel ${++index}`,
+    stops: reelJson
+  });
 
 });
 
-console.log(JSON.stringify(reelJson));
+const fileData = JSON.stringify(finalData, null, 2);
+console.log(fileData);
+fs.writeFileSync('./-reelstrips.json.out', fileData);
