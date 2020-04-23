@@ -92,4 +92,4 @@ reelStrips.reelString5 ].forEach((reelString, index) => {
 
 const fileData = JSON.stringify(finalData, null, 2);
 console.log(fileData);
-fs.writeFileSync('./-reelstrips.json.out', fileData);
+fs.writeFileSync('./reelstrips.out.json', fileData);
