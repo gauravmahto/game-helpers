@@ -229,6 +229,14 @@ function getNextReelIndex(index, incrementBy, maxSize) {
 
 }
 
+function getWhiteSpaces(num) {
+  return Array(num + 1).join(' ');
+}
+
+function getLengthStr(val) {
+  return String(val).length;
+}
+
 (async function main() {
 
   let [ reel1Stop, reel2Stop, reel3Stop, reel4Stop, reel5Stop ] = [ -1, -1, -1, -1, -1 ];
@@ -355,17 +363,31 @@ function getNextReelIndex(index, incrementBy, maxSize) {
     (reel4Stop !== -1) &&
     (reel5Stop !== -1)) {
 
-    console.log(`Reel stops: 
-      Reel1 = ${reel1Stop + 1}
-      Reel2 = ${reel2Stop + 1}
-      Reel3 = ${reel3Stop + 1}
-      Reel4 = ${reel4Stop + 1}
-      Reel5 = ${reel5Stop + 1}
-      `);
+    console.log(`
+    Results.
+    Reel stops (0-Indexed):
+      | ${getWhiteSpaces(getLengthStr(reel1Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel2Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel3Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel4Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel5Stop + 1))} |
+      | ${reel1Stop} | ${reel2Stop} | ${reel3Stop} | ${reel4Stop} | ${reel5Stop} |
+      | ${getWhiteSpaces(getLengthStr(reel1Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel2Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel3Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel4Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel5Stop + 1))} |
+    Reel stops (1-Indexed):
+      | ${reel1Stop + 1} | ${reel2Stop + 1} | ${reel3Stop + 1} | ${reel4Stop + 1} | ${reel5Stop + 1} |
+      | ${getWhiteSpaces(getLengthStr(reel1Stop + 2))} | ${getWhiteSpaces(getLengthStr(reel2Stop + 2))} | ${getWhiteSpaces(getLengthStr(reel3Stop + 2))} | ${getWhiteSpaces(getLengthStr(reel4Stop + 2))} | ${getWhiteSpaces(getLengthStr(reel5Stop + 2))} |
+      | ${getWhiteSpaces(getLengthStr(reel1Stop + 2))} | ${getWhiteSpaces(getLengthStr(reel2Stop + 2))} | ${getWhiteSpaces(getLengthStr(reel3Stop + 2))} | ${getWhiteSpaces(getLengthStr(reel4Stop + 2))} | ${getWhiteSpaces(getLengthStr(reel5Stop + 2))} |
+    Reel stops (2-Indexed):
+      | ${getWhiteSpaces(getLengthStr(reel1Stop - 1))} | ${getWhiteSpaces(getLengthStr(reel2Stop - 1))} | ${getWhiteSpaces(getLengthStr(reel3Stop - 1))} | ${getWhiteSpaces(getLengthStr(reel4Stop - 1))} | ${getWhiteSpaces(getLengthStr(reel5Stop - 1))} |
+      | ${getWhiteSpaces(getLengthStr(reel1Stop - 1))} | ${getWhiteSpaces(getLengthStr(reel2Stop - 1))} | ${getWhiteSpaces(getLengthStr(reel3Stop - 1))} | ${getWhiteSpaces(getLengthStr(reel4Stop - 1))} | ${getWhiteSpaces(getLengthStr(reel5Stop - 1))} |
+      | ${reel1Stop - 1} | ${reel2Stop - 1} | ${reel3Stop - 1} | ${reel4Stop - 1} | ${reel5Stop - 1} |`
+    );
 
   } else {
 
-    console.error(`Couldn't find reel stops for either one or for all of the provided reels' symbols (0-Indexed). Reel1: ${reel1Stop}, Reel2: ${reel2Stop}, Reel3: ${reel3Stop}, Reel4: ${reel4Stop}, Reel5: ${reel5Stop}`);
+    console.error(`
+    Results:
+    Couldn't find reel stops for either one or for all of the provided reels' symbols (0-Indexed).
+      | ${getWhiteSpaces(getLengthStr(reel1Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel2Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel3Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel4Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel5Stop + 1))} |
+      | ${reel1Stop} | ${reel2Stop} | ${reel3Stop} | ${reel4Stop} | ${reel5Stop} |
+      | ${getWhiteSpaces(getLengthStr(reel1Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel2Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel3Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel4Stop + 1))} | ${getWhiteSpaces(getLengthStr(reel5Stop + 1))} |`
+    );
 
   }
 
