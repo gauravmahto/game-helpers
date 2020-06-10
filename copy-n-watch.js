@@ -2,7 +2,6 @@ const { watch, copyFile: copyFileAsync, promises: { stat, readFile } } = require
 const { normalize, join } = require('path');
 const { promisify } = require('util');
 const { createHash } = require('crypto');
-const { hasUncaughtExceptionCaptureCallback } = require('process');
 
 const [ copyFile ] = [ promisify(copyFileAsync) ];
 
