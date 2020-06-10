@@ -1,0 +1,19 @@
+{
+  "name": "game-helpers",
+  "version": "1.0.0",
+  "description": "Helpers for game and related config",
+  "main": "convert-reels-xls-json.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravmahto-at/game-helpers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gauravmahto-at/game-helpers/issues"
+  },
+  "homepage": "https://github.com/gauravmahto-at/game-helpers#readme"
+}
