@@ -6,10 +6,9 @@ const { createHash } = require('crypto');
 const [ copyFile ] = [ promisify(copyFileAsync) ];
 
 const srcPath = normalize('C:/B2BCP_games/gdk');
-const destPath = normalize('C:/B2BCP_games/LS_TikiTorch/node_modules/@aristocrat/gdk');
+const destPath = normalize('C:/B2BCP_games/lone-star-platform/node_modules/@aristocrat/gdk');
 
 const timers = new Map();
-
 async function changeDetected(eventType, filename) {
 
   try {
